@@ -114,7 +114,9 @@ export class FilePlayer extends Component {
     if (this.shouldUseDASH(url)) {
       getSDK(DASH_SDK_URL, DASH_GLOBAL).then(dashjs => {
         this.dash = dashjs.MediaPlayer().create()
-        this.props.onInitialised(this.dash)
+        this.dash.on(dashjs.MediaPlayer.events.STREAM_INITALIZED, function (e) {
+          this.props.onInitialised(this.dash)
+        })
         this.dash.initialize(this.player, url, this.props.playing)
         this.dash.getDebug().setLogToBrowserConsole(false)
       })
