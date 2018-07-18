@@ -63,7 +63,8 @@ export const propTypes = {
   onError: func,
   onDuration: func,
   onSeek: func,
-  onProgress: func
+  onProgress: func,
+  onInitialised: func
 }
 
 export const defaultProps = {
@@ -150,7 +151,8 @@ export const defaultProps = {
   onError: function () {},
   onDuration: function () {},
   onSeek: function () {},
-  onProgress: function () {}
+  onProgress: function () {},
+  onInitialised: function () {}
 }
 
 export const DEPRECATED_CONFIG_PROPS = [

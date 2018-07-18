@@ -94,6 +94,7 @@ export interface ReactPlayerProps {
   onError?(error: any): void;
   onDuration?(duration: number): void;
   onSeek?(seconds: number): void;
+  onInitialised?(): void;
   onProgress?(state: { played: number, playedSeconds: number, loaded: number, loadedSeconds: number }): void;
   [otherProps: string]: any;
 }
