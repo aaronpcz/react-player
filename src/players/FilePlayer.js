@@ -10,7 +10,7 @@ const HLS_EXTENSIONS = /\.(m3u8)($|\?)/i
 const HLS_SDK_URL = 'https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.9.1/hls.min.js'
 const HLS_GLOBAL = 'Hls'
 const DASH_EXTENSIONS = /\.(mpd)($|\?)/i
-const DASH_SDK_URL = 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/2.6.5/dash.all.min.js'
+const DASH_SDK_URL = 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/2.8.0/dash.all.min.js'
 const DASH_GLOBAL = 'dashjs'
 const MATCH_DROPBOX_URL = /www\.dropbox\.com\/.+/
 
@@ -116,7 +116,7 @@ export class FilePlayer extends Component {
         this.dash = dashjs.MediaPlayer().create()
         this.dash.on(dashjs.MediaPlayer.events['STREAM_INITIALIZED'], function (e) {
           this.props.onInitialised(this.dash)
-        })
+        }.bind(this))
         this.dash.initialize(this.player, url, this.props.playing)
         this.dash.getDebug().setLogToBrowserConsole(false)
       })
